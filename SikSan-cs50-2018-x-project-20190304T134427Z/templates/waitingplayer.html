@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block incert %}
+<!--<meta http-equiv="refresh" content="5"/>-->
+<script>
+    waitingPlayerScript({{session_id}});
+</script>
+{% endblock %}
+
+{% block title %}
+    Waiting
+{% endblock %}
+
+{% block main %}
+<div class="w3-spin">..</div>
+<div>
+    <font size="60">Waiting for a second player. Session_id is {{session_id}}</font>
+</div>
+{% endblock %}

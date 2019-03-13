@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block incert %}
+<!--<script>
+    startTimer(window.timer)
+</script>-->
+{% endblock %}
+
+{% block title %}
+    Fight
+{% endblock %}
+
+{% block main %}
+<div class="row mt-5 mb-5">
+    <div class="col">
+        <!--{{name1}} {{health1}}-->
+        <p>{{name1}} <span class='fight-health'>{{health1}}</span></p>
+    </div>
+    <div class="col">
+        <!--{{name2}} {{health2}}-->
+        <p>{{name2}} <span class='fight-health'>{{health2}}</span></p>
+    </div>
+</div>
+<form class="row mt-5 mb-5" action='/fight/{{session_id}}' method='POST'>
+    <div class="col">
+        <!--{{avatar1}}-->
+        <img src="/static/images/{{avatar1}}.png" style='max-height: 200px;'>
+    </div>
+    <div class="col">
+        <div class="row justify-content-center">
+            <p>Your actions</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <fieldset>
+                <div class="row justify-content-center">
+                    <p>Attack</p>
+                </div>
+                <div class="row justify-content-center">
+                    <input class="form-check-input" type="radio" required name="attack" id="attack1" value="head">
+                    <label class="form-check-label" for="attack1">Head</label>
+                </div>
+                <div class="row justify-content-center">
+                    <input class="form-check-input" type="radio" required name="attack" id="attack2" value="body">
+                    <label class="form-check-label" for="attack2">Body</label>
+                </div>
+                <div class="row justify-content-center">
+                    <input class="form-check-input" type="radio" required name="attack" id="attack3" value="legs">
+                    <label class="form-check-label" for="attack3">Legs</label>
+                </div>
+                </fieldset>
+            </div>
+            <div class="col">
+                <fieldset>
+                    <div class="row justify-content-center">
+                    <p>Defence</p>
+                </div>
+                <div class="row justify-content-center">
+                    <input class="form-check-input" type="radio" required name="defence" id="defence1" value="head">
+                    <label class="form-check-label" for="defence1">Head</label>
+                </div>
+                <div class="row justify-content-center">
+                    <input class="form-check-input" type="radio" required name="defence" id="defence2" value="body">
+                    <label class="form-check-label" for="defence2">Body</label>
+                </div>
+                <div class="row justify-content-center">
+                    <input class="form-check-input" type="radio" required name="defence" id="defence3" value="legs">
+                    <label class="form-check-label" for="defence3">Legs</label>
+                </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 justify-content-center">
+            <button class="btn btn-primary" type="submit">Go!</button>
+        </div>
+    </div>
+    <div class="col">
+        <!--{{avatar2}}-->
+        <img src="/static/images/{{avatar2}}.png" style='max-height: 200px;'>
+    </div>
+</form>
+<div>
+  Time left <span id="timer"></span>
+</div>
+{% endblock %}

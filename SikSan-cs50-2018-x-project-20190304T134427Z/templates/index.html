@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block incert %}
+<script>
+indexScript({{ challengesJSON|safe }})
+</script>
+{% endblock %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div>
+    <img src="/static/images/heroes.png" style='max-height: 1000px;'>
+</div>
+<div class="row mt-5 mb-5">
+    <a class="btn btn-primary" href='/fight/create'>Create game</a>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Enter the game</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for challenge in challenges %}
+            <tr>
+                <td>{{ challenge.username1 }}</td>
+                <td>
+                    <a class="btn btn-primary" href='/startgame/{{challenge.session_id}}'>Accept</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
